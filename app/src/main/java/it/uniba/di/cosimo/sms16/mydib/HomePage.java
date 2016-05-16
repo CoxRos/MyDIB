@@ -17,9 +17,9 @@ public class HomePage extends AppCompatActivity {
 
         //nald bild
         if(true) {
-            System.out.println("Ciao bello");
+            System.out.println("Ciao");
         } else {
-            System.out.println("Tizio");
+            System.out.println("Tizio bello");
         }
     }
 }
