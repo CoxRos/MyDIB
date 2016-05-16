@@ -1,6 +1,12 @@
-.idea
-#.idea/workspace.xml - remove
-.gradle
-build/
 .DS_Store
-local.properties
+.idea/
+.gradle
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.iml
+*.iws
+*.ipr
+*~
+*.swp
