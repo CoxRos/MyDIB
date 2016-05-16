@@ -16,5 +16,10 @@ public class HomePage extends AppCompatActivity {
         //nata vot
 
         //nald bild
+        if(true) {
+            System.out.println("Ciao bello");
+        } else {
+            System.out.println("Tizio");
+        }
     }
 }
