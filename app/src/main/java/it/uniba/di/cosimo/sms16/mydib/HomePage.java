@@ -11,5 +11,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         //Prova prova prova
+
+        //ciao sono sergio
     }
 }
