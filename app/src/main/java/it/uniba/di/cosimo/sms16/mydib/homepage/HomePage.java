@@ -1,7 +1,9 @@
-package it.uniba.di.cosimo.sms16.mydib;
+package it.uniba.di.cosimo.sms16.mydib.homepage;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import it.uniba.di.cosimo.sms16.mydib.R;
 
 public class HomePage extends AppCompatActivity {
 
@@ -10,16 +12,6 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        //Prova prova prova
 
-        //ciao sono sergio
-        //nata vot
-
-        //nald bild
-        if(true) {
-            System.out.println("Ciao");
-        } else {
-            System.out.println("Tizio bello");
-        }
     }
 }
