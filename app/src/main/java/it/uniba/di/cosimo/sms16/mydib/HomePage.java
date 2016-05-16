@@ -14,5 +14,7 @@ public class HomePage extends AppCompatActivity {
 
         //ciao sono sergio
         //nata vot
+
+        //nald bild
     }
 }
