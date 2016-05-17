@@ -24,7 +24,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".flusso.university_contacts.Contacts"></activity>
+        <activity android:name=".flusso.university_contacts.Contacts">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".flusso.info_university.Info"></activity>
     </application>
 
 </manifest>

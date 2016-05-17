@@ -1,5 +1,6 @@
 package it.uniba.di.cosimo.sms16.mydib.homepage;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
+import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
+import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 
 public class HomePage extends AppCompatActivity {
 
@@ -18,6 +21,15 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Da togliere
+        GestioneSessione.contacts.add(new E_Contacts("Ministro", "E' la descrizione del ministro", "ministro@gmail.com", "0805392468"));
+        GestioneSessione.contacts.add(new E_Contacts("Deputato","E' la descrizione del deputato","deputato@gmail.com","0805392468"));
+        //------------
+        //Da spostare nel bottone VAI A CONTATTI
+        Intent intent = new Intent(this, it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts.class);
+        startActivity(intent);
+        //---------
     }
 
     @Override

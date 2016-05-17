@@ -48,7 +48,7 @@ public class SplashScreen extends Activity {
                 try {
                     int waited = 0;
                     // Splash screen pause time
-                    while (waited < 8500) { //Tempo di splash
+                    while (waited < 1500) { //Tempo di splash
                         sleep(100);
                         Log.d("Pre-caricamento", "waited: " + waited);
                         waited += 100;
