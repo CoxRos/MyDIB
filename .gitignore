@@ -3,7 +3,7 @@
 .gradle
 /*/local.properties
 /*/out
-/*/*/build
+/build
 /app/build
 /*/*/production
 *.iml
