@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
-import it.uniba.di.cosimo.sms16.mydib.flusso.info_university.Info;
+import it.uniba.di.cosimo.sms16.mydib.flusso.ristoro.Ristoro_Maps;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 
 public class HomePage extends AppCompatActivity {
@@ -32,9 +32,12 @@ public class HomePage extends AppCompatActivity {
         //startActivity(intent);
         //---------
         //Da spostare nel bottone INFO UNI
-        Intent intent = new Intent(this, Info.class);
+        //Intent intent = new Intent(this, Info.class);
+        //startActivity(intent);
+        //---------
+        //Da spostare nel bottone RISTORO
+        Intent intent = new Intent(this, Ristoro_Maps.class);
         startActivity(intent);
-
 
     }
 

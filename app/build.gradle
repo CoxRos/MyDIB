@@ -27,7 +27,8 @@ android {
                             'src/main/res/layouts/homePage',
                             'src/main/res/layouts/splash',
                             'src/main/res/layouts/uni_contacts',
-                            'src/main/res/layouts/uni_info'
+                            'src/main/res/layouts/uni_info',
+                            'src/main/res/layouts/uni_ristoro'
                     ]
         }
     }
@@ -38,4 +39,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
+    compile 'com.google.android.gms:play-services:8.4.0'
 }
