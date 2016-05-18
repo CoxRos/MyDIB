@@ -6,7 +6,7 @@
 
     <item
         android:id="@+id/action_info"
-        android:title="Info"
+        android:title="About As"
         android:orderInCategory="100"
         app:showAsAction="never"/>
     <item
