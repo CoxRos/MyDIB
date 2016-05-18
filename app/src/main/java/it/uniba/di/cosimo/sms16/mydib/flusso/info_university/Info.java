@@ -9,5 +9,6 @@ public class Info extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //sono sergio
+        //di nuovo io
     }
 }
