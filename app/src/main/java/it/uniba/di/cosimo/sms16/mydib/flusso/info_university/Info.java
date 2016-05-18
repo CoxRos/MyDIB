@@ -8,5 +8,6 @@ public class Info extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //branch flusso-C
     }
 }
