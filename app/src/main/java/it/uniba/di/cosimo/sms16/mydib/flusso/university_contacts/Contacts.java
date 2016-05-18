@@ -1,7 +1,10 @@
 package it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,16 +16,18 @@ public class Contacts extends Activity {
 
     ListView contacts;
     TextView email,phone;
+    Intent emailIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uni_contacts);
 
+        emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+        emailIntent.setType("plain/text");
+
         contacts = (ListView) findViewById(R.id.listUniContacts);
         email = (TextView) findViewById(R.id.textEmail);
         phone = (TextView) findViewById(R.id.textPhone);
-
-        //Devo fare l'onClick sull'email e quindi mandarlo alla mail, stessa cosa per il phone
 
         contacts = (ListView) findViewById(R.id.listUniContacts);
         ContacsAdapter listAdapter = new ContacsAdapter(getApplicationContext(),R.layout.list_contact_detail);
@@ -31,6 +36,19 @@ public class Contacts extends Activity {
         for(E_Contacts value : GestioneSessione.getContacts()) {
             listAdapter.add(value);
         }
+
+        //Con il click sulla lista sto andando a inviare l'email corrispondente
+        contacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                E_Contacts contact = GestioneSessione.getContacts().get(position);
+                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{contact.getEmail()});
+                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "INFORMAZIONI");
+                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
+                startActivity(Intent.createChooser(emailIntent, "Email to: " + contact.getTitolo()));
+            }
+        });
 
     }
 }

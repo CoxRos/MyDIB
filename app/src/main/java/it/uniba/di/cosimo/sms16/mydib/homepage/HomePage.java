@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
+import it.uniba.di.cosimo.sms16.mydib.flusso.info_university.Info;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 
 public class HomePage extends AppCompatActivity {
@@ -27,9 +28,14 @@ public class HomePage extends AppCompatActivity {
         GestioneSessione.contacts.add(new E_Contacts("Deputato","E' la descrizione del deputato","deputato@gmail.com","0805392468"));
         //------------
         //Da spostare nel bottone VAI A CONTATTI
-        Intent intent = new Intent(this, it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts.class);
+        //startActivity(intent);
         //---------
+        //Da spostare nel bottone INFO UNI
+        Intent intent = new Intent(this, Info.class);
+        startActivity(intent);
+
+
     }
 
     @Override
