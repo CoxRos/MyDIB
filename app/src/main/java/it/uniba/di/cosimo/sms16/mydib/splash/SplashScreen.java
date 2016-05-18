@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
-import it.uniba.di.cosimo.sms16.mydib.homepage.HomePage;
+import it.uniba.di.cosimo.sms16.mydib.homepage.HomePageNotLogged;
 
 public class SplashScreen extends Activity {
     public void onAttachedToWindow() {
@@ -54,7 +54,7 @@ public class SplashScreen extends Activity {
                         waited += 100;
                     }
                     Intent intent = new Intent(SplashScreen.this,
-                            HomePage.class);
+                            HomePageNotLogged.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     SplashScreen.this.finish();

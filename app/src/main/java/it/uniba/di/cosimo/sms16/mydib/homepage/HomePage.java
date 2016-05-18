@@ -1,49 +1,28 @@
 package it.uniba.di.cosimo.sms16.mydib.homepage;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
-import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
-import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
-import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 
-public class HomePage extends AppCompatActivity {
+/**
+ * Created by sergiocorvino on 18/05/16.
+ */
+public class HomePage extends Activity {
 
-    private Toolbar toolbar;
-    private Button btnInfo, btnNews, btnContatti, btnSvago;
+    private Button btnNews, btnCondividi, btnRicerca, btnProfilo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
-        toolbar.setTitle("HomePage");
-        setSupportActionBar(toolbar);
 
         //catturo gli id dei button
-        btnInfo = (Button)findViewById(R.id.btnInfo);
-        btnNews = (Button)findViewById(R.id.btnNews);
-        btnContatti = (Button)findViewById(R.id.btnContatti);
-        btnSvago = (Button)findViewById(R.id.btnSvago);
-
-        // Da togliere
-        GestioneSessione.contacts.add(new E_Contacts("Ministro", "E' la descrizione del ministro", "ministro@gmail.com", "0805392468"));
-        GestioneSessione.contacts.add(new E_Contacts("Deputato","E' la descrizione del deputato","deputato@gmail.com","0805392468"));
-        //------------
-
-        btnInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        btnNews = (Button)findViewById(R.id.btnNewsLogged);
+        btnCondividi = (Button)findViewById(R.id.btnCondividi);
+        btnRicerca = (Button)findViewById(R.id.btnRicerca);
+        btnProfilo = (Button)findViewById(R.id.btnProfilo);
 
         btnNews.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,38 +31,25 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        btnContatti.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getApplicationContext(), Contacts.class);
-                startActivity(intent);
-            }
-        });
-
-        btnSvago.setOnClickListener(new View.OnClickListener() {
+        btnCondividi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+        btnRicerca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+            }
+        });
 
-        if(id == R.id.action_info) {
-            Log.d("HOME", "hai cliccato le info");
-        } else if(id == R.id.action_login) {
-            Log.d("HOME", "vai alla login con popup");
-        }
-        return super.onOptionsItemSelected(item);
+        btnProfilo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
