@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.uniba.di.cosimo.sms16.mydib">
+
     <!--
     <uses-permission android:name="com.example.googlemaps.permission.MAPS_RECEIVE" />
 
@@ -64,7 +65,10 @@
         -->
         <activity
             android:name=".flusso.ristoro.Ristoro_Maps"
-            android:label="@string/title_activity_ristoro__maps"></activity>
+            android:label="@string/title_activity_ristoro__maps" />
+        <activity android:name=".flusso.ricerca_utenti.RicercaUtenti">
+
+        </activity>
     </application>
 
 </manifest>
