@@ -6,4 +6,6 @@
     <color name="azzurro">#40c6ff</color>
     <color name="bianco">#ffffff</color>
     <color name="giallo">#ece510</color>
+    <color name="black">#000000</color>
+    <color name="gray">#8aacba</color>
 </resources>
