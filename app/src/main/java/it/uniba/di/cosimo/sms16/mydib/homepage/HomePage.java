@@ -15,7 +15,7 @@ import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 
 /*
-    Master delle 16.00
+    Flusso2-C delle 16.33
  */
 public class HomePage extends OptionBarActivity {
 
