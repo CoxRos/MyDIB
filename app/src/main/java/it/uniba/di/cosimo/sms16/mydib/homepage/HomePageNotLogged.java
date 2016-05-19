@@ -1,12 +1,8 @@
 package it.uniba.di.cosimo.sms16.mydib.homepage;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,8 +10,9 @@ import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
 import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
+import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 
-public class HomePageNotLogged extends AppCompatActivity {
+public class HomePageNotLogged extends OptionBarActivity {
 
     private Toolbar toolbar;
     private Button btnInfo, btnNews, btnContatti, btnSvago;
@@ -67,26 +64,5 @@ public class HomePageNotLogged extends AppCompatActivity {
 
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if(id == R.id.action_info) {
-            Log.d("HOME", "hai cliccato le info");
-        } else if(id == R.id.action_login) {
-            //deve essere aperto il popup..
-            //solo di prova
-            Intent intent = new Intent(getApplicationContext(), HomePage.class);
-            startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

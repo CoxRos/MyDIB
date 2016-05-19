@@ -27,7 +27,8 @@ android {
                             'src/main/res/layouts/homePage',
                             'src/main/res/layouts/splash',
                             'src/main/res/layouts/uni_contacts',
-                            'src/main/res/layouts/uni_info'
+                            'src/main/res/layouts/uni_info',
+                            'src/main/res/layouts/login'
                     ]
         }
     }
