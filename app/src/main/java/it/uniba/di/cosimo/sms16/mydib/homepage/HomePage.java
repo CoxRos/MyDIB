@@ -15,7 +15,9 @@ import it.uniba.di.cosimo.sms16.mydib.flusso.info_university.Info;
 import it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti.RicercaUtenti;
 import it.uniba.di.cosimo.sms16.mydib.flusso.ristoro.Ristoro_Maps;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
-
+/*
+    Flusso-C 15.33
+ */
 public class HomePage extends AppCompatActivity {
 
     private Toolbar toolbar;
