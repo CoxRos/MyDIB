@@ -16,6 +16,7 @@ import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 
 /*
     Master delle 16.00
+    finalmente ci sono riuscito
  */
 public class HomePage extends OptionBarActivity {
 
