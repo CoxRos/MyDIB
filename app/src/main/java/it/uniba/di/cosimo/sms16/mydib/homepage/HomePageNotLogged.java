@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
+import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloUtente;
 import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
@@ -64,7 +65,8 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), ProfiloUtente.class);
+                startActivity(intent);
             }
         });
 
