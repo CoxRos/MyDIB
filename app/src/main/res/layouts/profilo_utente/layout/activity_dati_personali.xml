@@ -267,7 +267,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Voto laurea"
+                    android:text="Base laurea"
                     android:id="@+id/textView17"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="10dp"/>

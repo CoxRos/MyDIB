@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MyDIB</string>
     <string name="title_activity_ristoro__maps">Ristoro</string>
+    <string name="title_activity_libretto">Libretto</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
