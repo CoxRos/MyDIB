@@ -18,7 +18,8 @@
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:src="@drawable/student_libretto"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="-10dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,18 +30,6 @@
         android:layout_alignTop="@+id/imageView"
         android:layout_alignRight="@+id/textView4"
         android:layout_alignEnd="@+id/textView4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="tiziocapp@studenti.uniba.it"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:textSize="18dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Media Ponderata:"
+        android:text="Ponderata:"
         android:id="@+id/textView8"
         android:layout_alignBottom="@+id/textView6"
         android:layout_toLeftOf="@+id/textView6"
@@ -82,12 +71,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Media Aritmetica:"
+        android:text="Aritmetica:"
         android:id="@+id/textView12"
         android:layout_alignBottom="@+id/textView10"
         android:layout_toLeftOf="@+id/textView6"
         android:layout_toStartOf="@+id/textView6"
         android:layout_marginRight="20dp"
         android:textSize="19dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="tiziocapp"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:textSize="18dp" />
 
 </RelativeLayout>
