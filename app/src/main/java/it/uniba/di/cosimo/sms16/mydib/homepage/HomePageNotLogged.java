@@ -3,6 +3,7 @@ package it.uniba.di.cosimo.sms16.mydib.homepage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,6 +20,7 @@ public class HomePageNotLogged extends OptionBarActivity {
 
     private Toolbar toolbar;
     private Button btnInfo, btnNews, btnContatti, btnSvago;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +35,13 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnContatti = (Button)findViewById(R.id.btnContatti);
         btnSvago = (Button)findViewById(R.id.btnSvago);
 
-        // Da togliere
+        //creo il dialog del login
+        createDialog();
+
+        // Da togliere contatti
         GestioneSessione.contacts.add(new E_Contacts("Ministro", "E' la descrizione del ministro", "ministro@gmail.com", "0805392468"));
         GestioneSessione.contacts.add(new E_Contacts("Deputato","E' la descrizione del deputato","deputato@gmail.com","0805392468"));
+        //da togliere ricerca utenti
         GestioneSessione.userSearched.add(new UserSearched("1", "Tizio", "Caio", "Docente", "tizio@gmail.com"));
         GestioneSessione.userSearched.add(new UserSearched("2","Carlo","Pizzo","Studente","pizzo@gmail.com"));
         GestioneSessione.userSearched.add(new UserSearched("3", "Fluvio", "Travia", "Dirigente", "travia@gmail.com"));
@@ -64,7 +70,7 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.d("BUTTON", "cliccato news");
             }
         });
 
@@ -80,7 +86,23 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnSvago.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("BUTTON", "cliccato svago");
+            }
+        });
 
+        //bottoni del login
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAnnulla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
     }

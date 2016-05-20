@@ -3,12 +3,15 @@ package it.uniba.di.cosimo.sms16.mydib.flusso.info_university;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
+import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 
-public class Info extends AppCompatActivity {
+public class Info extends OptionBarActivity {
+    private Toolbar toolbar;
     private Intent emailIntent;
     TextView doveSiamoView,pecView,nomeDiretView,emailDiretView,nomeSegretView,emailSegretView;
 
@@ -16,6 +19,8 @@ public class Info extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_university);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         emailIntent = new Intent(android.content.Intent.ACTION_SEND);
         emailIntent.setType("plain/text");
