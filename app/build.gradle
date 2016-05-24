@@ -31,7 +31,8 @@ android {
                             'src/main/res/layouts/login',
                             'src/main/res/layouts/uni_ristoro',
                             'src/main/res/layouts/uni_ricerca',
-                            'src/main/res/layouts/profilo_utente'
+                            'src/main/res/layouts/profilo_utente',
+                            'src/main/res/layouts/profilo_utente/dati_personali'
 
                     ]
         }

@@ -21,7 +21,7 @@
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
-        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res/layouts/uni_ricerca;file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/main/res/layouts/uni_info;file://$MODULE_DIR$/src/main/res/layouts/toolbar;file://$MODULE_DIR$/src/main/res/layouts/profilo_utente;file://$MODULE_DIR$/src/main/res/layouts/uni_contacts;file://$MODULE_DIR$/src/main/res/layouts/splash;file://$MODULE_DIR$/src/main/res/layouts/uni_ristoro;file://$MODULE_DIR$/src/main/res/layouts/login;file://$MODULE_DIR$/src/main/res/layouts;file://$MODULE_DIR$/src/main/res/layouts/homePage;file://$MODULE_DIR$/src/debug/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res/layouts/uni_ricerca;file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/main/res/layouts/uni_info;file://$MODULE_DIR$/src/main/res/layouts/toolbar;file://$MODULE_DIR$/src/main/res/layouts/profilo_utente/dati_personali;file://$MODULE_DIR$/src/main/res/layouts/profilo_utente;file://$MODULE_DIR$/src/main/res/layouts/uni_contacts;file://$MODULE_DIR$/src/main/res/layouts/splash;file://$MODULE_DIR$/src/main/res/layouts/uni_ristoro;file://$MODULE_DIR$/src/main/res/layouts/login;file://$MODULE_DIR$/src/main/res/layouts;file://$MODULE_DIR$/src/main/res/layouts/homePage;file://$MODULE_DIR$/src/debug/res" />
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
@@ -61,6 +61,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/res/layouts/uni_ristoro" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/res/layouts/uni_ricerca" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/res/layouts/profilo_utente" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res/layouts/profilo_utente/dati_personali" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/aidl" isTestSource="false" />
