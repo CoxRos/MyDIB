@@ -16,7 +16,7 @@ import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 
 /*
-    Network 11.58
+    Master 10.50
  */
 public class HomePage extends OptionBarActivity {
 
