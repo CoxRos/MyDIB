@@ -1,0 +1,16 @@
+INFO
+{
+  "doveSiamo": "Campus Universitario \"Ernesto Quagliariello\" \n\"Via E. Orabona, 4 - Bari 70125\"",
+  "pec": "direzione.di@pec.uniba.it",
+  "nomeDir": "Prof. Donato Malerba",
+  "emailDir": "direttore.dib@uniba.it",
+  "nomeSegr": "dott. Rosaria Lacalamita",
+  "emailSegr": "sad.dib@uniba.it"
+}
+
+CONTATTI
+
+[{"titolo":"Ministro","descrizione":"E' la descrizione del ministro","email":"ministro@gmail.com","phone":"0805392468"},
+{"titolo":"Deputato","descrizione":"E' la descrizione del deputato","email":"deputato@gmail.com","phone":"0805392146"},
+{"titolo":"Carabiniere","descrizione":"E' la descrizione del carabiniere","email":"carabiniere@gmail.com","phone":"0805392579"},
+{"titolo":"Presidente","descrizione":"E' la descrizione del presidente","email":"presidente@gmail.com","phone":"0805392000"}]
