@@ -1,22 +1,33 @@
 package it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RadioGroup;
-import android.widget.ScrollView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.CustomRequestArray;
+import com.android.volley.toolbox.JsonArrayRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
-import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
+import it.uniba.di.cosimo.sms16.mydib.network.Network;
 
 /*
 ho la lista di Nome - Cognome - Tipo.
@@ -24,6 +35,9 @@ ho la lista di Nome - Cognome - Tipo.
     persona interessata
  */
 public class RicercaUtenti extends AppCompatActivity {
+
+    RequestQueue queue;
+    ProgressDialog progressDialog;
 
     Intent emailIntent;
     ListView utentiSearched;
@@ -36,6 +50,9 @@ public class RicercaUtenti extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uni_ricerca);
 
+        queue = Network.getInstance(getApplicationContext()).
+                getRequestQueue();
+
         utentiSearched = (ListView) findViewById(R.id.listSearch);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         nominativo = (EditText) findViewById(R.id.editNominativo);
@@ -46,12 +63,15 @@ public class RicercaUtenti extends AppCompatActivity {
         emailIntent = new Intent(android.content.Intent.ACTION_SEND);
         emailIntent.setType("plain/text");
 
-        RicercaUtentiAdapter listAdapter = new RicercaUtentiAdapter(getApplicationContext(),R.layout.layout_list_ricerca);
-        utentiSearched.setAdapter(listAdapter);
+        progressDialog = new ProgressDialog(this);
+
+
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final RicercaUtentiAdapter listAdapter = new RicercaUtentiAdapter(getApplicationContext(), R.layout.layout_list_ricerca);
+                utentiSearched.setAdapter(listAdapter);
                 String textToSearch = nominativo.getText().toString();
                 String tipo = "";
                 if (radioGroup.getCheckedRadioButtonId() == R.id.radioStudenti) {
@@ -70,6 +90,48 @@ public class RicercaUtenti extends AppCompatActivity {
                         listAdapter.add(value);
                     }
                      */
+                    //Sergio:192.168.30.162 - Cosimo:http://192.168.30.119
+                    CustomRequestArray request = new CustomRequestArray
+                            (Request.Method.POST, "http://192.168.30.162/POST_MYDIB.php", null, new Response.Listener<JSONArray>() {
+                                @Override
+                                public void onResponse(JSONArray response) {
+                                    String id, nome, cognome, tipo, email;
+                                    for (int i = 0; i < response.length(); i++) {
+                                        try {
+                                            JSONObject oggettoJson = response.getJSONObject(i);
+                                            id = oggettoJson.getString("id");
+                                            nome = oggettoJson.getString("nome");
+                                            cognome = oggettoJson.getString("cognome");
+                                            tipo = oggettoJson.getString("tipo");
+                                            email = oggettoJson.getString("email");
+                                            listAdapter.add(new UserSearched(id, nome, cognome, tipo, email));
+                                        } catch (Exception e) {
+                                            System.out.println("catch");
+                                        }
+                                    }
+                                    progressDialog.dismiss();
+
+                                }
+                            },
+                                    new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            System.out.println("ERR: " + error.getMessage());
+                                            progressDialog.dismiss();
+                                        }
+                                    }) {
+                        @Override
+                        protected Map<String, String> getParams() {
+                            Map<String, String> params = new HashMap<String, String>();
+                            params.put("action", "ricercaUtenti");
+                            return params;
+                        }
+                    };
+                    Network.getInstance(getApplicationContext()).addToRequestQueue(request);
+                    progressDialog.setTitle("Attendere");
+                    progressDialog.setMessage("Caricamento richiesta");
+                    progressDialog.show();
+
                 }
 
             }

@@ -62,7 +62,7 @@ public class HomePageNotLogged extends OptionBarActivity {
 
         btnNews.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //FIX ME
                 Intent intent = new Intent(getApplicationContext(), ProfiloUtente.class);
                 startActivity(intent);
             }
@@ -79,8 +79,9 @@ public class HomePageNotLogged extends OptionBarActivity {
 
         btnSvago.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v) { //FIX ME
+                Intent intent = new Intent(getApplicationContext(), RicercaUtenti.class);
+                startActivity(intent);
             }
         });
     }
