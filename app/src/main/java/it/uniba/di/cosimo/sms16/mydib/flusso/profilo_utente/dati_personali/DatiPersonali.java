@@ -33,7 +33,7 @@ public class DatiPersonali extends OptionBarActivity {
         txtNomeDati = (TextView) findViewById(R.id.txtNomeDati);
         txtVotoLaureaDati = (TextView) findViewById(R.id.txtVotoLaureaDati);
 
-        /* QUI LI DEVO PRENDERE DAL DATABASE
+        /* QUI LI DEVO PRENDERE DAL DATABASE 192.168.30.119
         Prima verifico se il DB li ha avvalorati,altrimenti chiamo il server
         txtAAInCorsoDati.setText("");
         txtAAIscrizioneDati.setText("");
