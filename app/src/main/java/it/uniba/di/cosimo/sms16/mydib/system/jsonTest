@@ -27,3 +27,13 @@ $response = "{
 			'matricola':'596234'
 		}";
 
+RICERCA UTENTI
+
+$response = "[{
+			'nome':'Marco',
+			'cognome':'Branca',
+			'tipo':'Docente',
+			'id':'1',
+			'email':'branca@gmail.com'
+		}]";
+
