@@ -14,3 +14,16 @@ CONTATTI
 {"titolo":"Deputato","descrizione":"E' la descrizione del deputato","email":"deputato@gmail.com","phone":"0805392146"},
 {"titolo":"Carabiniere","descrizione":"E' la descrizione del carabiniere","email":"carabiniere@gmail.com","phone":"0805392579"},
 {"titolo":"Presidente","descrizione":"E' la descrizione del presidente","email":"presidente@gmail.com","phone":"0805392000"}]
+
+
+INFO UTENTE
+
+$response = "{
+			'AAinCorso':'2018',
+			'AAIscrizione':'2013',
+			'cognome':'Bianchi',
+			'nome':'Roberto',
+			'email':'rob.bianchi@gmail.com',
+			'matricola':'596234'
+		}";
+
