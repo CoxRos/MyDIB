@@ -11,7 +11,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
@@ -45,7 +44,8 @@ public class Info extends AppCompatActivity {
         emailDiretView = (TextView) findViewById(R.id.emailDirettore);
         nomeSegretView = (TextView) findViewById(R.id.nomeSegretario);
         emailSegretView = (TextView) findViewById(R.id.emailSegretario);
-        setUI("https://api.myjson.com/bins/4uke8");
+        //setUI("https://api.myjson.com/bins/4uke8");
+        setUI("http://192.168.30.182/uni/MyDIB_Server/api/info_uni");
         /*
         doveSiamoView.setText("Campus Universitario \"Ernesto Quagliariello\" \n" +
                 "Via E. Orabona, 4 - Bari 70125");

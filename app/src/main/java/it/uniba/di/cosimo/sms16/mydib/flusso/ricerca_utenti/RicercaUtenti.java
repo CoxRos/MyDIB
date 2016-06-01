@@ -16,7 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.CustomRequestArray;
+//import com.android.volley.toolbox.CustomRequestArray;
 import com.android.volley.toolbox.JsonArrayRequest;
 
 import org.json.JSONArray;
@@ -27,6 +27,7 @@ import java.util.Map;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
+import it.uniba.di.cosimo.sms16.mydib.network.CustomRequestArray;
 import it.uniba.di.cosimo.sms16.mydib.network.Network;
 
 /*
@@ -91,6 +92,7 @@ public class RicercaUtenti extends AppCompatActivity {
                     }
                      */
                     //Sergio:192.168.30.162 - Cosimo:http://192.168.30.119
+
                     CustomRequestArray request = new CustomRequestArray
                             (Request.Method.POST, "http://192.168.30.162/POST_MYDIB.php", null, new Response.Listener<JSONArray>() {
                                 @Override

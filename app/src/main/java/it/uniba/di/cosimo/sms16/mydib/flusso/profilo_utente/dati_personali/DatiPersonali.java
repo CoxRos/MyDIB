@@ -9,7 +9,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.CustomRequestObject;
 
 import org.json.JSONObject;
 
@@ -17,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
+import it.uniba.di.cosimo.sms16.mydib.network.CustomRequestObject;
 import it.uniba.di.cosimo.sms16.mydib.network.Network;
 import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 
@@ -66,6 +66,7 @@ public class DatiPersonali extends OptionBarActivity {
         */
 
         //Suppongo che abbia già verificato all'interno del DB
+
         CustomRequestObject request = new CustomRequestObject
                 (Request.Method.POST, "http://192.168.30.119/POST_MYDIB.php", null, new Response.Listener<JSONObject>() {
             @Override
@@ -106,5 +107,8 @@ public class DatiPersonali extends OptionBarActivity {
         progressDialog.setTitle("Attendere");
         progressDialog.setMessage("Caricamento messaggi");
         progressDialog.show();
+
     }
+
+
 }
