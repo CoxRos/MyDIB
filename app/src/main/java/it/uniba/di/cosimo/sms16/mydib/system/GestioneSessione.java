@@ -10,6 +10,8 @@ import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
  */
 public class GestioneSessione {
 
+    //asdasdasda
+
     public static ArrayList<E_Contacts> contacts = new ArrayList<E_Contacts>();
     public static ArrayList<UserSearched> userSearched = new ArrayList<UserSearched>();
 
