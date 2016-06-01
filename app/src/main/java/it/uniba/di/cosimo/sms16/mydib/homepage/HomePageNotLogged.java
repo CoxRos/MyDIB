@@ -1,5 +1,6 @@
 package it.uniba.di.cosimo.sms16.mydib.homepage;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -34,9 +35,6 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnNews = (Button)findViewById(R.id.btnNews);
         btnContatti = (Button)findViewById(R.id.btnContatti);
         btnSvago = (Button)findViewById(R.id.btnSvago);
-
-        //creo il dialog del login
-        createDialog();
 
         // Da togliere contatti
         GestioneSessione.contacts.add(new E_Contacts("Ministro", "E' la descrizione del ministro", "ministro@gmail.com", "0805392468"));
@@ -90,20 +88,5 @@ public class HomePageNotLogged extends OptionBarActivity {
             }
         });
 
-        //bottoni del login
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HomePage.class);
-                startActivity(intent);
-            }
-        });
-
-        btnAnnulla.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
     }
 }

@@ -34,12 +34,12 @@ public class Login extends OptionBarActivity {
 
         getWindow().setLayout((int)(width*.8), (int)(height*.6));*/
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        /*btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HomePage.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }

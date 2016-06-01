@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -17,24 +18,28 @@ import android.widget.ScrollView;
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
+import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 
 /*
 ho la lista di Nome - Cognome - Tipo.
     Se ci clicco sopra, se è un professore mi manda alla schermata del professore, altrimenti direttamente alla mail alla
     persona interessata
  */
-public class RicercaUtenti extends AppCompatActivity {
+public class RicercaUtenti extends OptionBarActivity {
 
-    Intent emailIntent;
-    ListView utentiSearched;
-    RadioGroup radioGroup;
-    EditText nominativo;
-    ImageButton btnSearch;
+    private Intent emailIntent;
+    private ListView utentiSearched;
+    private RadioGroup radioGroup;
+    private EditText nominativo;
+    private ImageButton btnSearch;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uni_ricerca);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         utentiSearched = (ListView) findViewById(R.id.listSearch);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
@@ -91,8 +96,5 @@ public class RicercaUtenti extends AppCompatActivity {
                 */
             }
         });
-
     }
-
-
 }
