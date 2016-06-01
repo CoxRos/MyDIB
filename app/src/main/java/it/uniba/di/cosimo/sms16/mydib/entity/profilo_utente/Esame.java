@@ -7,7 +7,7 @@ public class Esame {
     String titolo,professore,data;
     int cfu,voto;
 
-    public Esame(String titolo, String professore, String data, int cfu, int voto) {
+    public Esame(String titolo, String data, int cfu, int voto) {
         this.titolo = titolo;
         this.professore = professore;
         this.data = data;
@@ -21,14 +21,6 @@ public class Esame {
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
-    }
-
-    public String getProfessore() {
-        return professore;
-    }
-
-    public void setProfessore(String professore) {
-        this.professore = professore;
     }
 
     public String getData() {
