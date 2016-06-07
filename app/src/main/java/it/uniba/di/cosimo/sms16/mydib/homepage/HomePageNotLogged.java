@@ -16,7 +16,9 @@ import it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti.RicercaUtenti;
 import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
 import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 import it.uniba.di.cosimo.sms16.mydib.flusso.info_university.Info;
-
+/*
+    Libretto-C 16.00
+ */
 public class HomePageNotLogged extends OptionBarActivity {
 
     private Toolbar toolbar;
