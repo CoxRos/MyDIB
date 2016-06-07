@@ -1,6 +1,8 @@
 package it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
+import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloDirigente;
+import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloStudente;
 
 /**
  * Created by Cosimo on 19/05/2016.
@@ -17,9 +21,12 @@ import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
 public class RicercaUtentiAdapter extends ArrayAdapter<UserSearched> {
 
     private final int NEW_LAYOUT_RESOURCE;
+    private Activity activity;
+    Intent intent;
 
-    public RicercaUtentiAdapter(final Context context,final int NEW_LAYOUT_RESOURCE) {
+    public RicercaUtentiAdapter(final Context context,Activity a,final int NEW_LAYOUT_RESOURCE) {
         super(context, 0);
+        this.activity = a;
         this.NEW_LAYOUT_RESOURCE = NEW_LAYOUT_RESOURCE;
     }
 
@@ -37,6 +44,23 @@ public class RicercaUtentiAdapter extends ArrayAdapter<UserSearched> {
         viewHolder.cognomeView.setText(entry.getCognome());
 
         viewHolder.tipoView.setText(entry.getTipo());
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String idRicerca = entry.getId();
+                String tipo = entry.getTipo();
+                if(tipo.equalsIgnoreCase("Studente")) {
+                    intent = new Intent(activity,ProfiloStudente.class);
+                    intent.putExtra("idStudente",idRicerca);
+                    activity.startActivity(intent);
+                } else {
+                    intent = new Intent(activity, ProfiloDirigente.class);
+                    intent.putExtra("idDirigente",idRicerca);
+                    activity.startActivity(intent);
+                }
+            }
+        });
 
         return view;
     }

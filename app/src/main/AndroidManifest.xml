@@ -84,7 +84,9 @@
             android:label="@string/title_activity_ristoro__maps" />
         <activity android:name=".flusso.ricerca_utenti.RicercaUtenti" />
         <activity android:name=".flusso.profilo_utente.ProfiloUtente" />
-        <activity android:name=".flusso.profilo_utente.dati_personali.DatiPersonali"></activity>
+        <activity android:name=".flusso.profilo_utente.dati_personali.DatiPersonali" />
+        <activity android:name=".flusso.profilo_utente.ProfiloDirigente" />
+        <activity android:name=".flusso.profilo_utente.ProfiloStudente"></activity>
     </application>
 
 </manifest>

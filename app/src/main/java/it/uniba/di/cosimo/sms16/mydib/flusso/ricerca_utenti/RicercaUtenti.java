@@ -1,50 +1,54 @@
 package it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti;
 
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-//import com.android.volley.toolbox.CustomRequestArray;
 import com.android.volley.toolbox.JsonArrayRequest;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
-import it.uniba.di.cosimo.sms16.mydib.network.CustomRequestArray;
 import it.uniba.di.cosimo.sms16.mydib.network.Network;
 
-/*
-ho la lista di Nome - Cognome - Tipo.
-    Se ci clicco sopra, se è un professore mi manda alla schermata del professore, altrimenti direttamente alla mail alla
-    persona interessata
- */
 public class RicercaUtenti extends AppCompatActivity {
 
     RequestQueue queue;
     ProgressDialog progressDialog;
 
-    Intent emailIntent;
     ListView utentiSearched;
     RadioGroup radioGroup;
+    RadioButton radioStudente,radioUni;
     EditText nominativo;
     ImageButton btnSearch;
+
+    public final int RADIOTUTTI = 0;
+    public final int RADIOSTUDENTE = 1;
+    public final int RADIODIRIGENTE = 2;
+
+    RicercaUtentiAdapter listAdapter;
+
+    int radioValue = 0;
+
+    ArrayList<CoupleSearch> indiciRicerca;
+
+    String radioType = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,47 +58,64 @@ public class RicercaUtenti extends AppCompatActivity {
         queue = Network.getInstance(getApplicationContext()).
                 getRequestQueue();
 
+        indiciRicerca = new ArrayList<CoupleSearch>();
+
         utentiSearched = (ListView) findViewById(R.id.listSearch);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioStudente = (RadioButton) findViewById(R.id.radioStudenti);
+        radioUni = (RadioButton) findViewById(R.id.radioPersonale);
         nominativo = (EditText) findViewById(R.id.editNominativo);
         btnSearch = (ImageButton) findViewById(R.id.btnSearch);
 
         nominativo.setSelection(0);
 
-        emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-        emailIntent.setType("plain/text");
-
         progressDialog = new ProgressDialog(this);
 
+        listAdapter = new RicercaUtentiAdapter(getApplicationContext(),RicercaUtenti.this, R.layout.layout_list_ricerca);
+        utentiSearched.setAdapter(listAdapter);
 
+        radioStudente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(radioValue == RADIOSTUDENTE) {
+                    radioGroup.clearCheck();
+                    radioValue = RADIOTUTTI;
+                } else {
+                    radioValue = RADIOSTUDENTE;
+                }
+            }
+        });
+
+        radioUni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(radioValue == RADIODIRIGENTE) {
+                    radioGroup.clearCheck();
+                    radioValue = RADIOTUTTI;
+                } else {
+                    radioValue = RADIODIRIGENTE;
+                }
+            }
+        });
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final RicercaUtentiAdapter listAdapter = new RicercaUtentiAdapter(getApplicationContext(), R.layout.layout_list_ricerca);
-                utentiSearched.setAdapter(listAdapter);
+
+                listAdapter.clear();
+
                 String textToSearch = nominativo.getText().toString();
-                String tipo = "";
                 if (radioGroup.getCheckedRadioButtonId() == R.id.radioStudenti) {
-                    tipo = "studente";
+                    radioType = "Studente";
                 } else if (radioGroup.getCheckedRadioButtonId() == R.id.radioPersonale) {
-                    tipo = "universita";
+                    radioType = "Dirigente";
                 } else {
-                    tipo = "tutti";
+                    radioType = "tutti";
                 }
 
                 if (textToSearch.length() > 0) {
-                    //Fai la chiamata al server passandogli il nominativo e il tipo per fare un filtro
-                    //--
-                    /*
-                    for(UserSearched value : DAL SERVER) {
-                        listAdapter.add(value);
-                    }
-                     */
-                    //Sergio:192.168.30.162 - Cosimo:http://192.168.30.119
-
-                    CustomRequestArray request = new CustomRequestArray
-                            (Request.Method.POST, "http://192.168.30.162/POST_MYDIB.php", null, new Response.Listener<JSONArray>() {
+                    JsonArrayRequest request = new JsonArrayRequest
+                            (Request.Method.GET, "http://192.168.30.185/uni/MyDIB_Server/api/searchUtente/"+radioType + "/" + textToSearch, null, new Response.Listener<JSONArray>() {
                                 @Override
                                 public void onResponse(JSONArray response) {
                                     String id, nome, cognome, tipo, email;
@@ -106,6 +127,7 @@ public class RicercaUtenti extends AppCompatActivity {
                                             cognome = oggettoJson.getString("cognome");
                                             tipo = oggettoJson.getString("tipo");
                                             email = oggettoJson.getString("email");
+                                            indiciRicerca.add(new CoupleSearch(id,tipo));
                                             listAdapter.add(new UserSearched(id, nome, cognome, tipo, email));
                                         } catch (Exception e) {
                                             System.out.println("catch");
@@ -115,47 +137,50 @@ public class RicercaUtenti extends AppCompatActivity {
 
                                 }
                             },
-                                    new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            System.out.println("ERR: " + error.getMessage());
-                                            progressDialog.dismiss();
-                                        }
-                                    }) {
-                        @Override
-                        protected Map<String, String> getParams() {
-                            Map<String, String> params = new HashMap<String, String>();
-                            params.put("action", "ricercaUtenti");
-                            return params;
-                        }
-                    };
+                                new Response.ErrorListener() {
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        System.out.println("ERR: " + error.getMessage());
+                                        Log.d("ATTENZIONE:",error.getCause().toString());
+                                        error.printStackTrace();
+                                        progressDialog.dismiss();
+                                    }
+                                });
                     Network.getInstance(getApplicationContext()).addToRequestQueue(request);
                     progressDialog.setTitle("Attendere");
                     progressDialog.setMessage("Caricamento richiesta");
                     progressDialog.show();
-
+                } else {
+                    Toast.makeText(RicercaUtenti.this, "Inserire un campo di ricerca",
+                            Toast.LENGTH_LONG).show();
                 }
-
             }
         });
+    }
 
-        utentiSearched.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private class CoupleSearch {
+        public String id,tipo;
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Qui devo vedere. Se quello che ho cliccato è un professore allora
-                //lo devo mandare alla pagina del professore altrimenti gli invio la mail -->
+        public CoupleSearch(String id, String tipo) {
+            this.id = id;
+            this.tipo = tipo;
+        }
 
-                /*
-                UserSearched contact = GestioneSessione.getUsersSearched().get(position);
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{contact.getEmail()});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "INFORMAZIONI");
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
-                startActivity(Intent.createChooser(emailIntent, "Email to: " + contact.getEmail()));
-                */
-            }
-        });
+        public String getId() {
+            return id;
+        }
 
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getTipo() {
+            return tipo;
+        }
+
+        public void setTipo(String tipo) {
+            this.tipo = tipo;
+        }
     }
 
 

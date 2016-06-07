@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
+import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloDirigente;
 import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloUtente;
 import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
@@ -33,24 +34,6 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnNews = (Button)findViewById(R.id.btnNews);
         btnContatti = (Button)findViewById(R.id.btnContatti);
         btnSvago = (Button)findViewById(R.id.btnSvago);
-
-
-        GestioneSessione.userSearched.add(new UserSearched("1", "Tizio", "Caio", "Docente", "tizio@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("2","Carlo","Pizzo","Studente","pizzo@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("3", "Fluvio", "Travia", "Dirigente", "travia@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("4","Parolo","Creta","Docente","creta@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("5","Terry","henry","Docente","henry@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("6","Tizio","Caio","Docente","tizio@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("7","Carlo","Pizzo","Studente","pizzo@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("8","Fluvio","Travia","Dirigente","travia@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("9","Parolo","Creta","Docente","creta@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("10","Terry","henry","Docente","henry@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("11","Tizio","Caio","Docente","tizio@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("12","Carlo","Pizzo","Studente","pizzo@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("13","Fluvio","Travia","Dirigente","travia@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("14","Parolo","Creta","Docente","creta@gmail.com"));
-        GestioneSessione.userSearched.add(new UserSearched("15","Terry","henry","Docente","henry@gmail.com"));
-        //------------
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +63,12 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnSvago.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //FIX ME
-                Intent intent = new Intent(getApplicationContext(), RicercaUtenti.class);
+                /*
+                Intent intent = new Intent(getApplicationContext(), ProfiloDirigente.class);
+                intent.putExtra("idDirigente",1);
+                startActivity(intent);
+                */
+                Intent intent = new Intent(getApplicationContext(),RicercaUtenti.class);
                 startActivity(intent);
             }
         });
