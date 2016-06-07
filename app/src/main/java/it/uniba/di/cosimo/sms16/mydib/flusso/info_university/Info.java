@@ -2,8 +2,8 @@ package it.uniba.di.cosimo.sms16.mydib.flusso.info_university;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,15 +13,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
-import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
 import it.uniba.di.cosimo.sms16.mydib.network.Network;
+import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 
-public class Info extends AppCompatActivity {
+
+public class Info extends OptionBarActivity {
+    private Toolbar toolbar;
     private Intent emailIntent;
     TextView doveSiamoView,pecView,nomeDiretView,emailDiretView,nomeSegretView,emailSegretView;
 
@@ -31,6 +31,8 @@ public class Info extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_university);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         queue = Network.getInstance(getApplicationContext()).
                 getRequestQueue();
@@ -44,17 +46,8 @@ public class Info extends AppCompatActivity {
         emailDiretView = (TextView) findViewById(R.id.emailDirettore);
         nomeSegretView = (TextView) findViewById(R.id.nomeSegretario);
         emailSegretView = (TextView) findViewById(R.id.emailSegretario);
-        //setUI("https://api.myjson.com/bins/4uke8");
-        setUI("http://192.168.30.182/uni/MyDIB_Server/api/info_uni");
-        /*
-        doveSiamoView.setText("Campus Universitario \"Ernesto Quagliariello\" \n" +
-                "Via E. Orabona, 4 - Bari 70125");
-        pecView.setText("direzione.di@pec.uniba.it");
-        nomeDiretView.setText("Prof. Donato Malerba");
-        emailDiretView.setText("direttore.dib@uniba.it");
-        nomeSegretView.setText("dott. Rosaria Lacalamita");
-        emailSegretView.setText("sad.dib@uniba.it");
-        */
+        setUI("http://192.168.30.185/uni/MyDIB_Server/api/info_uni");
+
         emailDiretView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

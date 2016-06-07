@@ -1,9 +1,14 @@
 package it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
+
+import android.support.v7.widget.Toolbar;
+
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -25,18 +30,24 @@ import java.util.ArrayList;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
+
 import it.uniba.di.cosimo.sms16.mydib.network.Network;
 
-public class RicercaUtenti extends AppCompatActivity {
+import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
+
+public class RicercaUtenti extends OptionBarActivity {
 
     RequestQueue queue;
     ProgressDialog progressDialog;
 
-    ListView utentiSearched;
-    RadioGroup radioGroup;
     RadioButton radioStudente,radioUni;
-    EditText nominativo;
-    ImageButton btnSearch;
+
+    private ListView utentiSearched;
+    private RadioGroup radioGroup;
+    private EditText nominativo;
+    private ImageButton btnSearch;
+    private Toolbar toolbar;
+
 
     public final int RADIOTUTTI = 0;
     public final int RADIOSTUDENTE = 1;
@@ -54,6 +65,8 @@ public class RicercaUtenti extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uni_ricerca);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         queue = Network.getInstance(getApplicationContext()).
                 getRequestQueue();
@@ -181,7 +194,6 @@ public class RicercaUtenti extends AppCompatActivity {
         public void setTipo(String tipo) {
             this.tipo = tipo;
         }
+
     }
-
-
 }

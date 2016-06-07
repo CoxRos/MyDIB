@@ -1,34 +1,22 @@
 package it.uniba.di.cosimo.sms16.mydib.entity.profilo_utente;
 
-/**
- * Created by Cosimo on 20/05/2016.
- */
 public class Esame {
-    String titolo,professore,data;
-    int cfu,voto;
 
-    public Esame(String titolo, String professore, String data, int cfu, int voto) {
-        this.titolo = titolo;
-        this.professore = professore;
+    String materia,data,cfu,voto;
+
+    public Esame(String materia, String data, String cfu, String voto) {
+        this.materia = materia;
         this.data = data;
         this.cfu = cfu;
         this.voto = voto;
     }
 
-    public String getTitolo() {
-        return titolo;
+    public String getMateria() {
+        return materia;
     }
 
-    public void setTitolo(String titolo) {
-        this.titolo = titolo;
-    }
-
-    public String getProfessore() {
-        return professore;
-    }
-
-    public void setProfessore(String professore) {
-        this.professore = professore;
+    public void setMateria(String materia) {
+        this.materia = materia;
     }
 
     public String getData() {
@@ -39,19 +27,19 @@ public class Esame {
         this.data = data;
     }
 
-    public int getCfu() {
+    public String getCfu() {
         return cfu;
     }
 
-    public void setCfu(int cfu) {
+    public void setCfu(String cfu) {
         this.cfu = cfu;
     }
 
-    public int getVoto() {
+    public String getVoto() {
         return voto;
     }
 
-    public void setVoto(int voto) {
+    public void setVoto(String voto) {
         this.voto = voto;
     }
 }

@@ -101,5 +101,4 @@ public class ContacsAdapter extends ArrayAdapter<E_Contacts> {
         public TextView phoneView;
 
     }
-
 }

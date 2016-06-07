@@ -7,20 +7,21 @@ import android.view.View;
 import android.widget.Button;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
-import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
-import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloDirigente;
+
+import it.uniba.di.cosimo.sms16.mydib.flusso.libretto.AddEsame;
 import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloUtente;
-import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
-import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
-import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
-import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
-import it.uniba.di.cosimo.sms16.mydib.flusso.info_university.Info;
+
+
 import it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti.RicercaUtenti;
+import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
+import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
+import it.uniba.di.cosimo.sms16.mydib.flusso.info_university.Info;
 
 public class HomePageNotLogged extends OptionBarActivity {
 
     private Toolbar toolbar;
     private Button btnInfo, btnNews, btnContatti, btnSvago;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,7 @@ public class HomePageNotLogged extends OptionBarActivity {
         btnContatti = (Button)findViewById(R.id.btnContatti);
         btnSvago = (Button)findViewById(R.id.btnSvago);
 
+
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +49,7 @@ public class HomePageNotLogged extends OptionBarActivity {
             @Override
             public void onClick(View v) { //FIX ME
                 Intent intent = new Intent(getApplicationContext(), ProfiloUtente.class);
+
                 startActivity(intent);
             }
         });
@@ -68,9 +71,11 @@ public class HomePageNotLogged extends OptionBarActivity {
                 intent.putExtra("idDirigente",1);
                 startActivity(intent);
                 */
-                Intent intent = new Intent(getApplicationContext(),RicercaUtenti.class);
+                Intent intent = new Intent(getApplicationContext(),AddEsame.class);
                 startActivity(intent);
+
             }
         });
+
     }
 }

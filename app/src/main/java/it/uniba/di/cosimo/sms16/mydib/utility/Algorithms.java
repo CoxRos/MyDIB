@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 import it.uniba.di.cosimo.sms16.mydib.entity.profilo_utente.Esame;
 
-/**
- * Created by Cosimo on 20/05/2016.
- */
 public class Algorithms {
 
     public double getBaseLaurea(double media) {
@@ -17,8 +14,8 @@ public class Algorithms {
         double result = 0;
         int sommCFU = 0;
         for(Esame esame : esami) {
-            result = result + (esame.getVoto()*esame.getCfu());
-            sommCFU += esame.getCfu();
+            result = result + (Integer.parseInt(esame.getVoto())*Integer.parseInt(esame.getCfu()));
+            sommCFU += Integer.parseInt(esame.getCfu());
         }
         return result/sommCFU;
     }
@@ -26,7 +23,7 @@ public class Algorithms {
     public double getMediaAritmetica(ArrayList<Esame> esami) {
         double result = 0;
         for(Esame esame : esami) {
-            result = result + esame.getVoto();
+            result = result + Integer.parseInt(esame.getVoto());
         }
         return result/esami.size();
     }

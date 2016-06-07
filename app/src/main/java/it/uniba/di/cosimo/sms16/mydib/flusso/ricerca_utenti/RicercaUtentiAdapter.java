@@ -15,9 +15,6 @@ import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
 import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloDirigente;
 import it.uniba.di.cosimo.sms16.mydib.flusso.profilo_utente.ProfiloStudente;
 
-/**
- * Created by Cosimo on 19/05/2016.
- */
 public class RicercaUtentiAdapter extends ArrayAdapter<UserSearched> {
 
     private final int NEW_LAYOUT_RESOURCE;

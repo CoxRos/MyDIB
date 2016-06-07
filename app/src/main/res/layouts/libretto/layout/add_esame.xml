@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/tollbar_home">
+    </include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="40dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/grey_new_seo"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/insertEsame"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="40dp"
+        android:weightSum="1">
+
+        <EditText
+            android:layout_width="341dp"
+            android:layout_height="match_parent"
+            android:hint="Esame"
+            android:id="@+id/edtEsame"/>
+        <EditText
+            android:layout_width="341dp"
+            android:layout_height="match_parent"
+            android:hint="Voto"
+            android:id="@+id/edtVoto"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+        <EditText
+            android:layout_width="341dp"
+            android:layout_height="match_parent"
+            android:hint="CFU"
+            android:id="@+id/edtCFU"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+        <EditText
+            android:layout_width="341dp"
+            android:layout_height="wrap_content"
+            android:hint="Data"
+            android:id="@+id/edtData"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="SALVA"
+        android:enabled="false"
+        android:id="@+id/buttonAggiungi"/>
+</LinearLayout>

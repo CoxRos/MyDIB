@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -23,20 +24,26 @@ import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
 import it.uniba.di.cosimo.sms16.mydib.network.Network;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
+import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 
-public class Contacts extends Activity {
+public class Contacts extends OptionBarActivity {
 
-    ListView contacts;
-    TextView email,phone;
-    Intent emailIntent;
+    private ListView contacts;
+    private TextView email,phone;
+    private Intent emailIntent;
+    private Toolbar toolbar;
+
 
     RequestQueue queue;
     ContacsAdapter listAdapter;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.uni_contacts);
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         queue = Network.getInstance(getApplicationContext()).
                 getRequestQueue();
