@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyDIB</string>
     <string name="title_activity_ristoro__maps">Ristoro</string>
+    <string name="insertEsame">Inserisci tutti i dati relativi al nuovo esame che vuoi aggiungere al tuo libretto</string>
 </resources>

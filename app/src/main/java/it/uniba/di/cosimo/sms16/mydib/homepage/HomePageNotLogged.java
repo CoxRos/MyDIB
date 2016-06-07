@@ -1,6 +1,5 @@
 package it.uniba.di.cosimo.sms16.mydib.homepage;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,12 +9,12 @@ import android.widget.Button;
 
 import it.uniba.di.cosimo.sms16.mydib.R;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_contacts.E_Contacts;
+import it.uniba.di.cosimo.sms16.mydib.flusso.libretto.AddEsame;
 import it.uniba.di.cosimo.sms16.mydib.flusso.university_contacts.Contacts;
 import it.uniba.di.cosimo.sms16.mydib.system.GestioneSessione;
 import it.uniba.di.cosimo.sms16.mydib.template.OptionBarActivity;
 import it.uniba.di.cosimo.sms16.mydib.entity.uni_search.UserSearched;
 import it.uniba.di.cosimo.sms16.mydib.flusso.info_university.Info;
-import it.uniba.di.cosimo.sms16.mydib.flusso.ricerca_utenti.RicercaUtenti;
 
 public class HomePageNotLogged extends OptionBarActivity {
 
@@ -69,6 +68,8 @@ public class HomePageNotLogged extends OptionBarActivity {
             @Override
             public void onClick(View v) {
                 Log.d("BUTTON", "cliccato news");
+                Intent intent = new Intent(getApplicationContext(), AddEsame.class);
+                startActivity(intent);
             }
         });
 
