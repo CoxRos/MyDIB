@@ -64,8 +64,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:id="@+id/radioGroup"
-            android:onClick="radioGroupClick">
+            android:id="@+id/radioGroup">
 
             <RadioButton
                 android:layout_width="wrap_content"
